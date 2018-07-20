@@ -2,11 +2,15 @@ doctype html
 html(lang="en")
   head
     title= pageTitle
-    script(type='text/javascript').
-      if (foo) bar(1 + 5)
+
   body
     h1 Pug - node template engine
-    h1= message
+    p= message
 
+    script.
+      var recievedData = JSON.parse('!{message}')
+      var first = recievedData[0]
+      console.log(recievedData[0])
 
-<script>console.log(JSON.parse(message))</script>
+    p= first
+
